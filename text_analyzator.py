@@ -1,3 +1,12 @@
+"""text_analyzator.py: první projekt do Engeto Online Python Akademie
+
+author: Arnošt Raab
+
+email: arnost.raab@gmail.com
+
+discord: Arnošt (Arny) R.#6219"""
+
+
 TEXTS = ['''
 Situated about 10 miles west of Kemmerer,
 Fossil Butte is a ruggedly impressive
