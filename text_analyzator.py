@@ -78,7 +78,11 @@ suma_cisel = 0
 rozsekany_text = TEXTS[cislo_textu].split()
 pocet_slov = len(rozsekany_text)
 cisla = []
+delky_slov = []
+cetnosti_delky_slov = []
+opakovane_cetnosti_DS = []
 for slovo in rozsekany_text:
+    delky_slov.append(len(slovo))
     if slovo[0].isupper():
         if slovo.isupper():
             slovo_z_VP+=1
@@ -101,6 +105,14 @@ for slovo in rozsekany_text:
             cisla=int("".join(cislice))
             cislo += 1
             suma_cisel += cisla
+for slovo in rozsekany_text:
+    delky_slov.append(len(slovo))
+for delka_slova in delky_slov:
+    if delka_slova not in opakovane_cetnosti_DS:
+        cetnosti_delky_slov.append(delky_slov.count(delka_slova))
+        opakovane_cetnosti_DS.append(delka_slova)
+slovnik_cetnosti = {opakovane_cetnosti_DS[i]: int(cetnosti_delky_slov[i]) for i in range(len(opakovane_cetnosti_DS))}
+sorted_slovnik_cetnosti = dict(sorted(slovnik_cetnosti.items()))
 print("----------------------------- Sumář ----------------------------")
 print (f"{pocet_slov} slov v textu.")           
 print (f"{slovo_VP} slov začínajících VP a {slovo_z_VP} slov(a) složených z VP.")
@@ -117,3 +129,8 @@ print ("Počet slov složených z velkých písmen.    ||", slovo_z_VP * "*", "|
 print ("Počet slov s malým počátečním písmenem.   ||", slovo_MP * "*", "||", str(slovo_MP))
 print ("Počet slov složených z malých písmen.     ||", slovo_z_MP * "*", "||", str(slovo_z_MP))
 print ("Počet slov s číslem.                      ||", cislo * "*", "||", str(cislo))
+print("----------------------------- Graf četnosti slov ----------------------------")
+for cetnost in sorted_slovnik_cetnosti:
+    print(f"Počet {cetnost} písmenných slov.      ||",int(sorted_slovnik_cetnosti[cetnost]) * "*", "||", sorted_slovnik_cetnosti[cetnost])
+   
+ 
