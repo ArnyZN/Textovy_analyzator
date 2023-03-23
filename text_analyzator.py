@@ -82,7 +82,6 @@ delky_slov = []
 cetnosti_delky_slov = []
 opakovane_cetnosti_DS = []
 for slovo in rozsekany_text:
-    delky_slov.append(len(slovo))
     if slovo[0].isupper():
         if slovo.isupper():
             slovo_z_VP+=1
